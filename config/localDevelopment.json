@@ -1,0 +1,8 @@
+{
+  "appName": "ss-server",
+  "db": {
+    "name": "ss-server",
+    "host": "localhost",
+    "port": 27017
+  }
+}
