@@ -15,8 +15,8 @@ const getCartItems = async (createdBy) => {
 /**
  * Queries the DB to save(if doesn't exist) and update Cart Items
  **/
-const saveNUpdateCart = async (createdBy, update) => {
-  return await Cart.findOneAndUpdate({ createdBy }, update, {
+const saveNUpdateCart = async (filter, update) => {
+  return await Cart.findOneAndUpdate(filter, update, {
     new: true,
     upsert: true,
     strict: false,
