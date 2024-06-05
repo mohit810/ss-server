@@ -6,5 +6,5 @@ This is Demo server for the [Website](https://github.com/mohit810/ss-website)
 1) Clone this repo using `git clone https://github.com/mohit810/ss-server.git`
 2) open the cloned repo in terminal and Install all the dependency using `npm install`
 5) To run the Server use `npn run start`
-3) Run Your MongoDB Server
+3) Run Your MongoDB Server and make sure server connection string is valid
 4) Import this into products collection [product.json](https://github.com/mohit810/ss-server/blob/main/product.json)
