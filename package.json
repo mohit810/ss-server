@@ -40,7 +40,6 @@
     "@root": ".",
     "@app": "app",
     "@controllers": "app/http/controllers",
-    "@middlewares": "app/http/middlewares",
     "@modules": "app/modules",
     "@models": "app/models",
     "@services": "app/services",
