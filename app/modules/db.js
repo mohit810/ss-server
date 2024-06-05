@@ -22,10 +22,7 @@ module.exports.connection = async () => {
       useUnifiedTopology: true,
     });
     state.db = db;
-    console.log(
-      " Database connection has been established successfully.",
-      db.models
-    );
+    console.log(" Database connection has been established successfully.");
     return db;
   } catch (err) {
     console.log("Unable to connect to the db:", err);
