@@ -1,4 +1,10 @@
-const { getCartItems, saveNUpdateCart } = require("@services/CartService");
+const {
+  getCartItems,
+  saveNUpdateCart,
+  deleteCart,
+  deleteCartItem,
+} = require("@services/CartService");
+const mongoose = require("mongoose");
 
 class CartController {
   constructor() {}
@@ -22,7 +28,7 @@ class CartController {
   }
 
   /**
-   * Save a Cart in DB
+   * Save's a Cart in DB
    **/
   async saveCart(req, res) {
     const { createdBy } = req.query;
@@ -35,7 +41,7 @@ class CartController {
   }
 
   /**
-   * Update a Cart in DB
+   * Update's a Cart in DB
    **/
   async updateCart(req, res) {
     const { createdBy } = req.query;
@@ -46,6 +52,32 @@ class CartController {
       },
       {
         "Items.$.qty": req.body.qty,
+      }
+    );
+    res.send(resp);
+  }
+
+  /**
+   * Delete's a Cart in DB
+   **/
+  async deleteOneCart(req, res) {
+    const { createdBy } = req.params;
+    const resp = await deleteCart({ createdBy });
+    res.send(resp);
+  }
+
+  /**
+   * Delete's a Cart Item in DB
+   **/
+  async deleteCartItem(req, res) {
+    const { createdBy } = req.params;
+    const { productID } = req.params;
+    const resp = await deleteCartItem(
+      { createdBy },
+      {
+        $pull: {
+          Items: { productID: new mongoose.Types.ObjectId(productID) },
+        },
       }
     );
     res.send(resp);

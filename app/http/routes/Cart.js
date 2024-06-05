@@ -8,5 +8,13 @@ router.post(
   asyncHandler(cartController.saveCart.bind(cartController))
 );
 router.patch("/update-cart", cartController.updateCart.bind(cartController));
+router.delete(
+  "/delete-cart/:createdBy",
+  cartController.deleteOneCart.bind(cartController)
+);
+router.delete(
+  "/delete-cartItem/:createdBy/:productID",
+  cartController.deleteCartItem.bind(cartController)
+);
 
 module.exports = router;

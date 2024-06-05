@@ -13,7 +13,7 @@ const getCartItems = async (createdBy) => {
 };
 
 /**
- * Queries the DB to save(if doesn't exist) and update Cart Items
+ * Queries the DB to save(if doesn't exist) and can also update Cart Items
  **/
 const saveNUpdateCart = async (filter, update) => {
   return await Cart.findOneAndUpdate(filter, update, {
@@ -23,7 +23,23 @@ const saveNUpdateCart = async (filter, update) => {
   });
 };
 
+/**
+ * Queries the DB to delete a Cart associated according to the filter
+ **/
+const deleteCart = async (filter) => {
+  return await Cart.deleteOne(filter);
+};
+
+/**
+ * Queries the DB to delete a Cart Item associated with a user Cart
+ **/
+const deleteCartItem = async (filter, update) => {
+  return await Cart.updateOne(filter, update);
+};
+
 module.exports = {
   getCartItems,
   saveNUpdateCart,
+  deleteCart,
+  deleteCartItem,
 };
