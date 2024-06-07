@@ -1,4 +1,4 @@
-# SS Innovations Server Demo
+# Server Demo
 
 This is Demo server for the [Website](https://github.com/mohit810/ss-website)
 
